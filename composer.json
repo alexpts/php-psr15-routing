@@ -1,5 +1,5 @@
 {
-    "name": "alex/php-psr15-routing",
+    "name": "alexpts/php-psr15-routing",
     "authors": [
         {
             "name": "alexpts",
@@ -15,5 +15,10 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "PTS\\PSR15Routing": "src"
+        }
     }
 }
