@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "562917241f2b8cb2f2bb73b705ca00b9",
+    "content-hash": "975999636277c1645a52d58ee2d2ad29",
     "packages": [
         {
             "name": "alexpts/php-tools",
@@ -49,20 +49,20 @@
         },
         {
             "name": "alexpts/psr15-middleware-manager",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alexpts/psr15-middleware-manager.git",
-                "reference": "2bd1b88bbe83004625f9f508edf73404dfd2dbd6"
+                "reference": "d5c1173a781c487946b744c244b523972555f62c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alexpts/psr15-middleware-manager/zipball/2bd1b88bbe83004625f9f508edf73404dfd2dbd6",
-                "reference": "2bd1b88bbe83004625f9f508edf73404dfd2dbd6",
+                "url": "https://api.github.com/repos/alexpts/psr15-middleware-manager/zipball/d5c1173a781c487946b744c244b523972555f62c",
+                "reference": "d5c1173a781c487946b744c244b523972555f62c",
                 "shasum": ""
             },
             "require": {
-                "php": ">7.2",
+                "php": "~7.2",
                 "psr/http-message": "^1.0",
                 "psr/http-server-middleware": "^1.0"
             },
@@ -94,7 +94,7 @@
                 "psr-15",
                 "psr-7"
             ],
-            "time": "2018-03-13T16:54:32+00:00"
+            "time": "2018-03-25T08:45:53+00:00"
         },
         {
             "name": "psr/http-message",
