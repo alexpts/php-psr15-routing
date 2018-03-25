@@ -1,7 +1,5 @@
 # psr-15 routing
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/89812ecc-babb-441e-acca-466c87e03a54/big.png)](https://insight.sensiolabs.com/projects/89812ecc-babb-441e-acca-466c87e03a54)
-
 [![Build Status](https://travis-ci.org/alexpts/php-psr15-routing.svg?branch=master)](https://travis-ci.org/alexpts/php-psr15-routing)
 [![Code Coverage](https://scrutinizer-ci.com/g/alexpts/php-psr15-routing/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/alexpts/php-psr15-routing/?branch=master)
 [![Code Climate](https://codeclimate.com/github/alexpts/php-psr15-routing/badges/gpa.svg)](https://codeclimate.com/github/alexpts/php-psr15-routing)
