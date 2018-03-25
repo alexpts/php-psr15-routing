@@ -1,11 +1,24 @@
 {
     "name": "alexpts/php-psr15-routing",
+    "description": "Middleware routing compatible with the PSR-7 and PSR-15",
+    "homepage": "https://github.com/alexpts/php-psr15-routing",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "middleware",
+        "router",
+        "routing",
+        "psr-7",
+        "psr-15"
+    ],
+    "optimize-autoloader": true,
     "authors": [
         {
-            "name": "alexpts",
-            "email": "alexpts@yandex.ru"
+            "name": "Alexpts",
+            "email": "alexpts3@gmail.com"
         }
     ],
+    "minimum-stability": "stable",
     "require": {
         "php": "~7.2",
         "psr/http-message": "^1.0",
