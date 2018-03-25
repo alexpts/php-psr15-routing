@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1bc52541ef2202abcac7b3ca92a842d",
+    "content-hash": "958ce9c1620b64c41a4e01d20f919ece",
     "packages": [
         {
             "name": "alexpts/php-tools",
@@ -46,55 +46,6 @@
             "description": "Php tools",
             "homepage": "https://github.com/alexpts/php-tools",
             "time": "2017-09-19T17:41:28+00:00"
-        },
-        {
-            "name": "alexpts/psr15-middleware-manager",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alexpts/psr15-middleware-manager.git",
-                "reference": "d5c1173a781c487946b744c244b523972555f62c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alexpts/psr15-middleware-manager/zipball/d5c1173a781c487946b744c244b523972555f62c",
-                "reference": "d5c1173a781c487946b744c244b523972555f62c",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~7.2",
-                "psr/http-message": "^1.0",
-                "psr/http-server-middleware": "^1.0"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "^0.4.4",
-                "phpunit/phpunit": "^7.0",
-                "zendframework/zend-diactoros": "^1.7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "PTS\\PSR15\\MiddlewareManager": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexpts",
-                    "email": "alexpts3@gmail.com"
-                }
-            ],
-            "description": "Middleware manager compatible with the PSR-7 and PSR-15",
-            "homepage": "https://github.com/alexpts/psr15-middleware-manager",
-            "keywords": [
-                "middleware",
-                "psr-15",
-                "psr-7"
-            ],
-            "time": "2018-03-25T08:45:53+00:00"
         },
         {
             "name": "psr/http-message",
