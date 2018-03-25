@@ -6,6 +6,9 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alexpts/php-psr15-routing/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/alexpts/php-psr15-routing/?branch=master)
 
 
+#### Install
+```composer require alexpts/php-psr15-routing```
+
 Простой роутер с поддержкой PSR-7, PSR-15
 
 #### Возможности
