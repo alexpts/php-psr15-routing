@@ -27,7 +27,7 @@ class Router extends Collection
         return $this->removeItemWithoutPriority($name);
     }
 
-    public function getRoutes($sortByPriority = true): array
+    public function getRoutes(bool $sortByPriority = true): array
     {
         return $this->getFlatItems($sortByPriority);
     }
