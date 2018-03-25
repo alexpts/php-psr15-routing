@@ -42,9 +42,10 @@ class Router extends Collection
     public function match(ServerRequestInterface $request): Route
     {
         $uri = $request->getUri()->getPath();
+        $method = $request->getMethod();
 
         foreach ($this->getRoutes() as $route) {
-            $activeRoute = $this->matchRoute($route, $uri, $request->getMethod());
+            $activeRoute = $this->matchRoute($route, $uri, $method);
             if ($activeRoute !== null) {
                 return $activeRoute;
             }
