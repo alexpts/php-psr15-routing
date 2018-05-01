@@ -17,3 +17,30 @@
 - Гибкие группировки для захвата параметров
 - Приоритеты роутов
 - Высокая скорость работы
+
+
+
+### Example
+```php
+<?php
+use PTS\PSR15Routing\CallableAdapter;
+use PTS\PSR15Routing\Router;
+use PTS\PSR15Routing\Route;
+use PTS\PSR15Routing\RouterMiddleware;
+
+$router = new Router;
+
+$router->add('/', new Route('/', new CallableAdapter(function($request) {
+    return $response; // $response must be ResponseInterface
+})));
+
+$handler = ...; // $handler bust be RequestHandlerInterface
+$router->add('/admin', new Route('/', $handler));
+
+
+// with priority
+$router->add('/admin/1', new Route('/', $handler), 100);
+
+// some middleware manager/runner
+$app = (new MiddlewareManager)
+	->push(new RouterMiddleware($router)
