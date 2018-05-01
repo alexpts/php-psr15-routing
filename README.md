@@ -43,4 +43,6 @@ $router->add('/admin/1', new Route('/', $handler), 100);
 
 // some middleware manager/runner
 $app = (new MiddlewareManager)
-	->push(new RouterMiddleware($router)
+	->push(new RouterMiddleware($router);
+
+$response = $app->handler($request);
