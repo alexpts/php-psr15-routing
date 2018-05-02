@@ -33,11 +33,16 @@ class RouterMiddlewareTest extends TestCase
      */
     public function testProcess(): void
     {
+        $route = $this->getMockBuilder(Route::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['getHandler'])
+            ->getMock();
+
         /** @var MockObject|ServerRequestInterface $request */
         $request = $this->getMockBuilder(ServerRequestInterface::class)
             ->setMethods(['withAttribute'])
             ->getMockForAbstractClass();
-        $request->method('withAttribute')->with('name1', 'value1')->willReturn($request);
+        $request->expects(self::once())->method('withAttribute')->with('route', $route)->willReturn($request);
 
         /** @var MockObject|RequestHandlerInterface $handler */
         $handler = $this->getMockBuilder(RequestHandlerInterface::class)
@@ -46,11 +51,6 @@ class RouterMiddlewareTest extends TestCase
         $handler->expects(self::once())->method('handle')->with($request)
             ->willReturn($this->createMock(ResponseInterface::class));
 
-        $route = $this->getMockBuilder(Route::class)
-            ->disableOriginalConstructor()
-            ->setMethods(['getMatchesParams', 'getHandler'])
-            ->getMock();
-        $route->expects(self::once())->method('getMatchesParams')->willReturn(['name1' => 'value1']);
         $route->expects(self::once())->method('getHandler')->willReturn($handler);
 
         /** @var MockObject|Router $router */

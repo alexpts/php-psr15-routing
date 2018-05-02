@@ -10,6 +10,8 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class RouterMiddleware implements MiddlewareInterface
 {
+    protected $attributeName = 'route';
+
     /** @var Router */
     protected $router;
 
@@ -29,11 +31,7 @@ class RouterMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $route = $this->router->match($request);
-
-        foreach ($route->getMatchesParams() as $name => $value) {
-            $request = $request->withAttribute($name, $value);
-        }
-
+        $request = $request->withAttribute($this->attributeName, $route);
         return $route->getHandler()->handle($request);
     }
 }
