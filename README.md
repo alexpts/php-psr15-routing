@@ -22,7 +22,6 @@
 
 ### Example
 ```php
-<?php
 use PTS\PSR15Routing\CallableAdapter;
 use PTS\PSR15Routing\Router;
 use PTS\PSR15Routing\Route;
@@ -46,3 +45,36 @@ $app = (new MiddlewareManager)
 	->push(new RouterMiddleware($router);
 
 $response = $app->handler($request);
+
+
+
+### EndPoint (bonus)
+
+EndPoint is wrapper for real handler route. It need for flex config real handler and get real handler from runtime.
+
+```php
+use PTS\PSR15Routing\CallableAdapter;
+use PTS\PSR15Routing\Router;
+use PTS\PSR15Routing\Route;
+use PTS\PSR15Routing\RouterMiddleware;
+use PTS\EndPoint\DynamicPoint;
+use PTS\EndPoint\ControllerPoint;
+
+$router = new Router;
+
+$flexHandler = new DynamicPoint([
+	'prefix' => '\\Namespace\\ForDynamicController\\'
+]);
+$router->add('flex', new Route('/{_controller}/{_action}', $flexHandler));
+// /blog/get/ => \\Namespace\\ForDynamicController\\Blog::get()
+
+$mainPageHandler =  new ControllerPoint(['controller' => SomeController::class]);
+$router->add('mainPage', new Route('/', $mainPageHandler)); // SomeController::index()
+
+// with params from url
+$postHandler = new DynamicPoint([
+	'controller' => '\\Project\\PostController',
+]);
+$router->add('posts', new Route('/posts/{_action}{id}/', $postHandler));
+// /posts/get/4/ => PostController::get($id = 4)
+```

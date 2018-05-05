@@ -30,7 +30,8 @@
     },
     "autoload": {
         "psr-0": {
-            "PTS\\PSR15Routing": "src"
+            "PTS\\PSR15Routing": "src",
+            "PTS\\EndPoint": "src"
         }
     }
 }
