@@ -8,20 +8,18 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use PTS\PSR15Routing\Route;
 
-abstract class EndPoint implements RequestHandlerInterface
+class EndPoint implements RequestHandlerInterface
 {
 	/** @var string|null */
 	protected $controller;
 	/** @var string|null */
 	protected $action;
-	/** @var string */
-    protected $prefix = '';
 
     public function __construct(array $params = [])
     {
         foreach ($params as $name => $param) {
             if (property_exists($this, $name)) {
-                $this->{$name} = $param;
+                $this->setProperty($name, $param);
             }
         }
     }
@@ -39,6 +37,11 @@ abstract class EndPoint implements RequestHandlerInterface
 
         $params = $this->getParams($route);
         return $endPoint(...$params);
+    }
+
+    protected function setProperty(string $name, $value): void
+    {
+        $this->{$name} = $value;
     }
 
 	/**
@@ -73,7 +76,10 @@ abstract class EndPoint implements RequestHandlerInterface
         return [$controller, $action];
     }
 
-    abstract protected function getControllerClass(ServerRequestInterface $request);
+    protected function getControllerClass(ServerRequestInterface $request): string
+    {
+        return $this->controller ?? '';
+    }
 
 	/**
 	 * @param string $controller
@@ -91,7 +97,7 @@ abstract class EndPoint implements RequestHandlerInterface
 	 * @param string $action
 	 * @throws \BadMethodCallException
 	 */
-	protected function checkAction(object $controller, string $action) : void
+	protected function checkAction($controller, string $action) : void
     {
         if (!method_exists($controller, $action)) {
             throw new \BadMethodCallException('Action not found');

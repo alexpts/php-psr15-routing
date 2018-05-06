@@ -9,7 +9,7 @@ class DynamicPoint extends EndPoint
 {
     protected $prefix = '';
 
-    protected function getControllerClass(ServerRequestInterface $request) : string
+    protected function getControllerClass(ServerRequestInterface $request): string
     {
         $route = $this->getRoute($request);
         $matches = $route->getMatchesParams();
@@ -21,7 +21,7 @@ class DynamicPoint extends EndPoint
         return $this->prefix . $this->normalizeClassFromUrl($matches['_controller']);
     }
 
-    protected function normalizeClassFromUrl(string $class) : string
+    protected function normalizeClassFromUrl(string $class): string
     {
         return array_reduce(explode('-', $class), function ($prev, $item) {
             return $prev . ucfirst($item);

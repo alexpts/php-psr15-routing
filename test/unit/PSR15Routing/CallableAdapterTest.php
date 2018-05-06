@@ -1,15 +1,19 @@
 <?php
+namespace PSR15RoutingTests;
 
+use Closure;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use PTS\PSR15Routing\CallableAdapter;
+use ReflectionException;
+use ReflectionProperty;
 
 class CallableAdapterTest extends TestCase
 {
     /**
      * @covers \PTS\PSR15Routing\CallableAdapter::__construct
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
     public function testConstuctor(): void
     {
@@ -25,7 +29,7 @@ class CallableAdapterTest extends TestCase
 
     /**
      * @covers \PTS\PSR15Routing\CallableAdapter::handle()
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
     public function testHandle(): void
     {

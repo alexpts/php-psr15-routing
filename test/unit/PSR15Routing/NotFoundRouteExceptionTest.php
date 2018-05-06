@@ -1,4 +1,5 @@
 <?php
+namespace PSR15RoutingTests;
 
 use PHPUnit\Framework\TestCase;
 use PTS\PSR15Routing\NotFoundRouteException;

@@ -1,4 +1,5 @@
 <?php
+namespace PSR15RoutingTests;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;

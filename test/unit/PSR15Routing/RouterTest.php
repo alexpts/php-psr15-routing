@@ -1,4 +1,5 @@
 <?php
+namespace PSR15RoutingTests;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -9,6 +10,8 @@ use PTS\PSR15Routing\NotFoundRouteException;
 use PTS\PSR15Routing\Route;
 use PTS\PSR15Routing\Router;
 use PTS\Tools\DuplicateKeyException;
+use ReflectionException;
+use ReflectionMethod;
 
 class RouterTest extends TestCase
 {

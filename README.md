@@ -58,7 +58,7 @@ use PTS\PSR15Routing\Router;
 use PTS\PSR15Routing\Route;
 use PTS\PSR15Routing\RouterMiddleware;
 use PTS\EndPoint\DynamicPoint;
-use PTS\EndPoint\ControllerPoint;
+use PTS\EndPoint\EndPoint;
 
 $router = new Router;
 
@@ -68,7 +68,7 @@ $flexHandler = new DynamicPoint([
 $router->add('flex', new Route('/{_controller}/{_action}', $flexHandler));
 // /blog/get/ => \\Namespace\\ForDynamicController\\Blog::get()
 
-$mainPageHandler =  new ControllerPoint(['controller' => SomeController::class]);
+$mainPageHandler = new EndPoint(['controller' => SomeController::class]);
 $router->add('mainPage', new Route('/', $mainPageHandler)); // SomeController::index()
 
 // with params from url
