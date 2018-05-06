@@ -10,10 +10,10 @@ use PTS\PSR15Routing\Route;
 
 class EndPoint implements RequestHandlerInterface
 {
-	/** @var string|null */
-	protected $controller;
-	/** @var string|null */
-	protected $action;
+    /** @var string|null */
+    protected $controller;
+    /** @var string|null */
+    protected $action;
 
     public function __construct(array $params = [])
     {
@@ -31,8 +31,8 @@ class EndPoint implements RequestHandlerInterface
      * @throws \BadMethodCallException
      */
     public function handle(ServerRequestInterface $request): ResponseInterface
-	{
-    	$route = $this->getRoute($request);
+    {
+        $route = $this->getRoute($request);
         $endPoint = $this->getPoint($request);
 
         $params = $this->getParams($route);
@@ -44,18 +44,19 @@ class EndPoint implements RequestHandlerInterface
         $this->{$name} = $value;
     }
 
-	/**
-	 * Get params from router and remove all protected params (_controller/_action/_other)
-	 *
-	 * @param Route $route
-	 * @return array
-	 */
+    /**
+     * Get params from router and remove all protected params (_controller/_action/_other)
+     *
+     * @param Route $route
+     *
+     * @return array
+     */
     protected function getParams(Route $route): array
-	{
+    {
         return array_filter($route->getMatchesParams(), function ($name) {
             return $name[0] !== '_';
         }, ARRAY_FILTER_USE_KEY);
-	}
+    }
 
     /**
      * @param ServerRequestInterface $request
@@ -63,7 +64,7 @@ class EndPoint implements RequestHandlerInterface
      * @return callable
      * @throws \BadMethodCallException
      */
-	protected function getPoint(ServerRequestInterface $request) : callable
+    protected function getPoint(ServerRequestInterface $request): callable
     {
         $controller = $this->getControllerClass($request);
         $this->checkController($controller);
@@ -81,37 +82,39 @@ class EndPoint implements RequestHandlerInterface
         return $this->controller ?? '';
     }
 
-	/**
-	 * @param string $controller
-	 * @throws \BadMethodCallException
-	 */
-	protected function checkController(string $controller) : void
+    /**
+     * @param string $controller
+     *
+     * @throws \BadMethodCallException
+     */
+    protected function checkController(string $controller): void
     {
         if (!class_exists($controller)) {
             throw new \BadMethodCallException('Controller not found');
         }
     }
 
-	/**
-	 * @param \object $controller
-	 * @param string $action
-	 * @throws \BadMethodCallException
-	 */
-	protected function checkAction($controller, string $action) : void
+    /**
+     * @param \object $controller
+     * @param string $action
+     *
+     * @throws \BadMethodCallException
+     */
+    protected function checkAction($controller, string $action): void
     {
         if (!method_exists($controller, $action)) {
             throw new \BadMethodCallException('Action not found');
         }
     }
 
-	protected function getAction(ServerRequestInterface $request): ?string
-	{
+    protected function getAction(ServerRequestInterface $request): ?string
+    {
         $route = $this->getRoute($request);
         $matches = $route->getMatchesParams();
-		return $matches['_action'] ?? $this->action ?? null;
-	}
+        return $matches['_action'] ?? $this->action ?? null;
+    }
 
-	protected function getRoute(ServerRequestInterface $request): Route
+    protected function getRoute(ServerRequestInterface $request): Route
     {
         return $request->getAttribute('route');
     }
