@@ -65,7 +65,7 @@ $router = new Router;
 $flexHandler = new DynamicPoint([
 	'prefix' => '\\Namespace\\ForDynamicController\\'
 ]);
-$router->add('flex', new Route('/{_controller}/{_action}', $flexHandler));
+$router->add('flex', new Route('/{_controller}/{_action}/', $flexHandler));
 // /blog/get/ => \\Namespace\\ForDynamicController\\Blog::get()
 
 $mainPageHandler = new EndPoint(['controller' => SomeController::class]);
@@ -75,6 +75,6 @@ $router->add('mainPage', new Route('/', $mainPageHandler)); // SomeController::i
 $postHandler = new DynamicPoint([
 	'controller' => '\\Project\\PostController',
 ]);
-$router->add('posts', new Route('/posts/{_action}{id}/', $postHandler));
+$router->add('posts', new Route('/posts/{_action}/{id}/', $postHandler));
 // /posts/get/4/ => PostController::get($id = 4)
 ```
